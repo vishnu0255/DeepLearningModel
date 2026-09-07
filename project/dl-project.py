@@ -23,14 +23,13 @@ dfs = pd.concat([dfs,ge_dfs],axis=1)
 #drop geography column
 dfs.drop(columns=['Geography'],inplace=True)
 
-'''
+
 ##Save the encoders 
 with open('label-encoder-gender.pkl','wb') as file:
     pickle.dump(le,file)
 
 with open('onehot-encoder-geography.pkl','wb') as file:
     pickle.dump(ohe,file)
-'''
 
 X=dfs.drop(columns=['Exited'])
 y=dfs['Exited']
@@ -43,9 +42,9 @@ X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
 
 #save the scaler
-'''with open('scaler.pkl','wb') as file:
+with open('scaler.pkl','wb') as file:
     pickle.dump(scaler,file)
-'''
+
 
 #Build ANN Model
 model = Sequential([
